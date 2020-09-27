@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Medecin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Medecin</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item (click)="addMedecin()" color="primary">
+    <ion-label>
+      Ajouter un medecin
+    </ion-label>
+  
+    
+  </ion-item>
+  <ion-card *ngFor="let medecin of info.data.medecins index as i">
+    <ion-card-header>
+      <ion-card-title>Specialité: {{medecin.titre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>Nom : {{medecin.nom}}</ion-label>
+      </ion-item>
+      <ion-item [href]="'mailto:'+medecin.mail+'?subject=informations'">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-label> {{medecin.mail}}</ion-label>
+      </ion-item>
+    
+      <ion-item >
+        <ion-icon name="call-outline"></ion-icon>
+        <ion-label> Telephone: {{medecin.tel}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-button color="secondary"(click)="update(i)">Modifier</ion-button>
+        <ion-button color="danger"(click)="delete(i)">Supprimer</ion-button>
+      </ion-item>
+    </ion-card-header>
+    
+  
+  </ion-card>
+</ion-content>
+

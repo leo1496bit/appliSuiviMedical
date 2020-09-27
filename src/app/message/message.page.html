@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Utilisation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Utilisation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Quantité disponible</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-progress-bar color="primary" value="0.75"></ion-progress-bar>
+      75%
+    </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-grid>
+          <ion-row>
+            <ion-col size="12">28°C</ion-col>
+            <ion-col size="12" class="labb">Temperature</ion-col>
+          </ion-row>
+        </ion-grid></ion-col>
+        <ion-col>
+          <ion-grid>
+          <ion-row>
+            <ion-col size="12">3.7V</ion-col>
+            <ion-col size="12" class="labb">Signe vie</ion-col>
+          </ion-row>
+        </ion-grid></ion-col>
+        <ion-col>
+          <ion-grid>
+          <ion-row>
+            <ion-col size="12">Smart-vento</ion-col>
+            <ion-col size="12" class="labb">Technologie</ion-col>
+          </ion-row>
+        </ion-grid></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  
+  
+  
+</ion-content>

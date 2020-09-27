@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inscription</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form  [formGroup]="suiteForm" (ngSubmit)="valider()">
+    <ion-item>
+      <ion-label>Maladie : </ion-label>
+      <ion-input formControlName="maladie"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="suiteForm.get('maladie').invalid && (suiteForm.get('maladie').touched || suiteForm.get('maladie').dirty) " >Le nom de la maladie est obligatoire</span>
+    <ion-item>
+      <ion-label>Consommations (par jour): </ion-label>
+      <ion-input type="number" formControlName="consommation" [(ngModel)]="heure" (keyup)="addHeures()"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="suiteForm.get('consommation').invalid && (suiteForm.get('consommation').touched || suiteForm.get('consommation').dirty) " >Le nombre de consommation est obligatoire</span>
+    <div formArrayName="heures">
+      <ion-item *ngFor="let heure of heures.controls; let i=index ">
+        <ion-label>Heure : </ion-label>
+        <ion-input type="time" [formControlName]="i"></ion-input>
+      </ion-item>
+    </div>
+    
+    
+    <ion-item >
+      <ion-button [disabled]="!suiteForm.valid" type="submit">Suivant</ion-button>
+    </ion-item>
+
+  </form>
+
+  
+</ion-content>

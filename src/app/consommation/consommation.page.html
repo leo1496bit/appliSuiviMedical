@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consommation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Consommation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button expand="full" disabled class="background">{{data.consommation}} fois par jour</ion-button>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Horaires de consommation</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item *ngFor="let heure of data.heures">
+      <ion-icon name="hourglass-outline"></ion-icon>
+      <ion-label>{{heure}}</ion-label>
+    </ion-item>
+  </ion-card-content>
+  
+</ion-card>
+  
+</ion-content>

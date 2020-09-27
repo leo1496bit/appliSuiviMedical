@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajout de medecin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ajout de medecin</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="newMedecin" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label>Nom medecin : </ion-label>
+      <ion-input formControlName="nom"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="newMedecin.get('nom').invalid && (newMedecin.get('nom').touched || newMedecin.get('nom').dirty) " >Le nom est obligatoire</span>
+    <ion-item>
+      <ion-label>Fonction :  </ion-label>
+      <ion-input formControlName="titre"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="newMedecin.get('titre').invalid && (newMedecin.get('titre').touched || newMedecin.get('titre').dirty) " >La fonction du medecin est obligatoire</span>
+    <ion-item>
+      <ion-label>Mail :  </ion-label>
+      <ion-input formControlName="mail"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="newMedecin.get('mail').invalid && (newMedecin.get('mail').touched || newMedecin.get('mail').dirty) " >Le mail est obligatoire</span>
+    <ion-item>
+      <ion-label>Telephone :  </ion-label>
+      <ion-input formControlName="tel"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="newMedecin.get('tel').invalid &&  (newMedecin.get('tel').touched || newMedecin.get('tel').dirty)" >Saisir un numéro correct </span>
+    <ion-item >
+      <ion-button [disabled]="!newMedecin.valid" type="submit">Enregistrer</ion-button>
+    </ion-item>
+    <ion-item *ngIf="error" class="error">
+      {{error}}
+    </ion-item>
+
+  </form>
+
+  
+</ion-content>
+
+

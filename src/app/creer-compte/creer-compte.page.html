@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Creer compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Creer compte</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="creerCompteForm" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label>Nom utilisateur : </ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="creerCompteForm.get('username').invalid && (creerCompteForm.get('username').touched || creerCompteForm.get('username').dirty) " >Le nom d'utilisateur est obligatoire</span>
+    <ion-item>
+      <ion-label>Addr Mail : </ion-label>
+      <ion-input formControlName="mail"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="creerCompteForm.get('mail').invalid && (creerCompteForm.get('mail').touched || creerCompteForm.get('mail').dirty) " >L'adresse mail est obligatoire</span>
+    <ion-item>
+      <ion-label>Mot de passe : </ion-label>
+      <ion-input type="password" formControlName="pass"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="creerCompteForm.get('pass').invalid && (creerCompteForm.get('pass').touched || creerCompteForm.get('pass').dirty) " >Le mot de passe est trop court</span>
+    <ion-item>
+      <ion-label>Confirmation : </ion-label>
+      <ion-input type="password" #conf></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="creerCompteForm.get('pass').value!== conf.value " >Le mot de passe est différent </span>
+    <ion-item >
+      <ion-button [disabled]="!creerCompteForm.valid" type="submit">Enregistrer</ion-button>
+    </ion-item>
+    <ion-item *ngIf="error" class="error">
+      {{error}}
+    </ion-item>
+
+  </form>
+
+  
+</ion-content>
+
+

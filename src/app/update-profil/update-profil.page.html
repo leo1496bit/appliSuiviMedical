@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modification du profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Modification du profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="profilForm" novalidate (ngSubmit)="afficher()" >
+    <ion-item>
+      <ion-label>Nom : </ion-label>
+      <ion-input formControlName="nom"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('nom').invalid && (profilForm.get('nom').touched || profilForm.get('nom').dirty) " >Le nom est obligatoire</span>
+    <ion-item>
+      <ion-label>Prenom : </ion-label>
+      <ion-input formControlName="prenom"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('prenom').invalid && (profilForm.get('prenom').touched || profilForm.get('prenom').dirty) " >Le Prénom est obligatoire</span>
+    <ion-item>
+      <ion-label>Pseudo: </ion-label>
+      <ion-input  formControlName="username"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('username').invalid && (profilForm.get('username').touched || profilForm.get('username').dirty) " >Le nom d'utilisateur est obligatoire</span>
+    <ion-item>
+      <ion-label>Mail: </ion-label>
+      <ion-input  formControlName="mail"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('mail').invalid && (profilForm.get('mail').touched || profilForm.get('mail').dirty) " >Le mail est obligatoire</span>
+    <ion-item>
+      <ion-label>Date de naiss : </ion-label>
+      <ion-input type="date" formControlName="dateNaissance"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('dateNaissance').invalid && (profilForm.get('dateNaissance').touched || profilForm.get('dateNaissance').dirty) " >La date de naissance est obligatoire</span>
+    <ion-list lines="inset">
+      <ion-radio-group value="sexe" [formControl]="profilForm.controls['sexe']" >
+        <ion-list-header>
+          <ion-label>Sexe</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>M</ion-label>
+          <ion-radio slot="start"  value="masculin"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>F</ion-label>
+          <ion-radio slot="start" value="feminin"></ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+    </ion-list>
+    
+    <ion-item>
+      <ion-label>Adresse : </ion-label>
+      <ion-input formControlName="adresse"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('adresse').invalid && (profilForm.get('adresse').touched || profilForm.get('adresse').dirty) " >L'adresse est obligatoire</span>
+    <ion-item>
+      <ion-label>Telephone : </ion-label>
+      <ion-input type="tel" formControlName="telephone"></ion-input>
+    </ion-item>
+    <span class= "error ion-padding" *ngIf="profilForm.get('telephone').invalid && (profilForm.get('telephone').touched || profilForm.get('telephone').dirty) " >Le téléphone est obligatoire</span>
+    
+    <ion-item >
+      <ion-button [disabled]="!profilForm.valid" type="submit">Suivant</ion-button>
+    </ion-item>
+
+  </form>
+
+  
+</ion-content>
+

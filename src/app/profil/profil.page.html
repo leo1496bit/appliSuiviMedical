@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item >
+      <ion-label>Nom : {{info.data.nom}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Prenom : {{info.data.prenom}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Mail : {{info.data.mail}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Pseudo : {{info.data.user}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Maladie: {{info.data.maladie}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>sexe: {{info.data.sexe}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>telephone : {{info.data.telephone}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Naissance : {{info.data.dateNaissance}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Adresse : {{info.data.adresse}} </ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-button routerLink="/update-profil">Modifier</ion-button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
